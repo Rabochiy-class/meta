@@ -1,19 +1,26 @@
 #!/bin/bash
 
-clone_repository {
+updatef() {
     case $1 in
         bot|all)
-            git clone git@bot:Rabochiy-class/backend.git
+            cd ./backend
+            git pull
+            cd ..
             ;;
         meta|all)
-            git clone git@meta:Rabochiy-class/meta.git
-            cp -r ./meta/* ./
+            cd ./meta
+            git pull
+            cd ..
             ;;
         backend|all)
-            git clone git@backend:Rabochiy-class/node-backend.git
+            cd ./node-backend
+            git pull
+            cd ..
             ;;
         frontend|all)
-            git clone git@frontend:Rabochiy-class/frontend.git
+            cd ./frontend
+            git pull
+            cd ..
             ;;
         *)
             echo "Invalid argument: $1"
@@ -22,5 +29,5 @@ clone_repository {
 }
 
 for arg in "$@"; do
-    clone_repository "$arg"
+    updatef "$arg"
 done
