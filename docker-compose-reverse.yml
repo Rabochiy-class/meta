@@ -11,12 +11,14 @@ services:
     build: 
       context: ./node-backend
       dockerfile: Dockerfile
+    container_name: backend_deploy
     expose:
       - "5000"
   bot:
     build: 
       context: ./backend
       dockerfile: Dockerfile
+    container_name: bot_deploy
     expose:
       - "8080"
       - "80"
@@ -24,5 +26,6 @@ services:
     build: 
       context: ./frontend
       dockerfile: Dockerfile
+    container_name: frontend_deploy
     expose:
       - "80"
