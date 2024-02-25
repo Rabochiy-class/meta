@@ -1,6 +1,20 @@
 # META
 Файлы конфигурация и сценариев для деплоя сервисов разными стратегиями с минимальными (надеемся) затратами.
 
+## Запуск
+
+Production запуск подразумевает использование Nginx с reverse proxy. Команда для запуска (с пересборкой):
+
+```shell
+docker compose -f docker-compose-reverse.yml up --build
+```
+
+Для отключения:
+
+```shell
+docker compose -f docker-compose-reverse.yml down --build
+```
+
 ## Создание SSL сертификата
 Создаем сертификат для нашего домена (сейчас у продакшена это https://streamsync.ru/):
 
