@@ -17,7 +17,7 @@ certbot --standalone -d streamsync.ru
 остановлены, после чего подняты по завершению.
 
 ```shell
-certbot renew --pre-hook "docker-compose -f ./docker-compose-reverse.yml down" --post-hook "docker-compose -f ./docker-compose-reverse.yml up -d"
+certbot renew --pre-hook "docker compose -f ./docker-compose-reverse.yml down" --post-hook "docker compose -f ./docker-compose-reverse.yml up -d"
 ```
 
 ### Планирование
@@ -29,5 +29,5 @@ crontab -e
 
 И добавляем ежедненвую генерацию:
 ```shell
-@daily certbot renew --pre-hook "docker-compose -f ./docker-compose-reverse.yml down" --post-hook "docker-compose -f ./docker-compose-reverse.yml up -d"
+@daily certbot renew --pre-hook "docker compose -f ./docker-compose-reverse.yml down" --post-hook "docker compose -f ./docker-compose-reverse.yml up -d"
 ```
